@@ -10,6 +10,9 @@ export default defineConfig(() => ({
     dts({
       entryRoot: 'src',
       tsconfigPath: path.join(import.meta.dirname, 'tsconfig.lib.json'),
+      compilerOptions: {
+        customConditions: ['non-existing'],
+      },
     }),
   ],
   // Uncomment this if you are using workers.

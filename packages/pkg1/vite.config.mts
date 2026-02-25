@@ -9,19 +9,11 @@ export default defineConfig(() => ({
   plugins: [
     dts({
       tsconfigPath: path.join(import.meta.dirname, 'tsconfig.lib.json'),
+      compilerOptions: {
+        customConditions: ['non-existing'],
+      },
       bundleTypes: {
         bundledPackages: ['@bar/*'],
-        // needed if using TS customConditions pointing to source
-        // otherwise, the source will be inlined with actual impl
-        extractorConfig: {
-          compiler: {
-            overrideTsconfig: {
-              compilerOptions: {
-                customConditions: null,
-              },
-            },
-          },
-        },
       },
     }),
   ],
